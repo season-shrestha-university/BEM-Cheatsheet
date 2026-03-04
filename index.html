@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>BEM Product Card Example</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <main class="page">
+      <h1 class="page__title">BEM Example</h1>
+
+      <section class="product-grid">
+        <!-- Default product card -->
+        <article class="product-card">
+          <div class="product-card__image-wrapper">
+            <img
+              class="product-card__image"
+              src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=480&q=80"
+              alt="Minimalist wristwatch"
+            />
+            <span class="product-card__badge">New</span>
+          </div>
+          <div class="product-card__body">
+            <p class="product-card__category">Accessories</p>
+            <h2 class="product-card__title">Minimalist Watch</h2>
+            <p class="product-card__description">
+              A clean, everyday timepiece with a leather strap and sapphire
+              crystal glass.
+            </p>
+            <div class="product-card__footer">
+              <span class="product-card__price">$129</span>
+              <button class="product-card__button">Add to Cart</button>
+            </div>
+          </div>
+        </article>
+
+        <!-- product-card--featured modifier -->
+        <article class="product-card product-card--featured">
+          <div class="product-card__image-wrapper">
+            <img
+              class="product-card__image"
+              src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=480&q=80"
+              alt="Wireless headphones"
+            />
+            <span class="product-card__badge product-card__badge--highlight"
+              >Best Seller</span
+            >
+          </div>
+          <div class="product-card__body">
+            <p class="product-card__category">Electronics</p>
+            <h2 class="product-card__title">Wireless Headphones</h2>
+            <p class="product-card__description">
+              Premium noise-cancelling headphones with 30-hour battery life and
+              rich bass.
+            </p>
+            <div class="product-card__footer">
+              <span class="product-card__price">$249</span>
+              <button class="product-card__button">Add to Cart</button>
+            </div>
+          </div>
+        </article>
+
+        <!-- product-card--sold-out modifier -->
+        <article class="product-card product-card--sold-out">
+          <div class="product-card__image-wrapper">
+            <img
+              class="product-card__image"
+              src="https://images.unsplash.com/photo-1491553895911-0055eca6402d?w=480&q=80"
+              alt="Running sneakers"
+            />
+            <span class="product-card__badge product-card__badge--muted"
+              >Sold Out</span
+            >
+          </div>
+          <div class="product-card__body">
+            <p class="product-card__category">Footwear</p>
+            <h2 class="product-card__title">Running Sneakers</h2>
+            <p class="product-card__description">
+              Lightweight mesh upper with responsive cushioning for
+              long-distance comfort.
+            </p>
+            <div class="product-card__footer">
+              <span class="product-card__price">$95</span>
+              <button class="product-card__button" disabled>Sold Out</button>
+            </div>
+          </div>
+        </article>
+      </section>
+
+      <!-- BEM Explanation -->
+      <section class="explanation">
+        <h2 class="explanation__heading">What is BEM?</h2>
+        <p class="explanation__intro">
+          <strong>BEM</strong> stands for <strong>Block</strong>,
+          <strong>Element</strong>, <strong>Modifier</strong>. It is a naming
+          convention for CSS classes that makes your stylesheets easier to read,
+          understand, and scale. Every class name follows one simple pattern:
+        </p>
+
+        <div class="explanation__formula">
+          <code class="explanation__formula-code"
+            >.block__element--modifier</code
+          >
+        </div>
+
+        <!-- Block -->
+        <div class="explanation__concept">
+          <h3 class="explanation__concept-title">
+            <span class="explanation__label explanation__label--block">B</span>
+            Block
+          </h3>
+          <p class="explanation__text">
+            A <strong>Block</strong> is a standalone, reusable component. It is
+            meaningful on its own and doesn't depend on its surroundings. Think
+            of it as the outermost container of a UI pattern.
+          </p>
+          <div class="explanation__example">
+            <div class="explanation__example-label">In our card example</div>
+            <pre
+              class="explanation__code-block"
+            ><code>&lt;article class="<mark>product-card</mark>"&gt;
+  ...
+&lt;/article&gt;</code></pre>
+            <p class="explanation__example-note">
+              <code class="explanation__inline-code">product-card</code> is the
+              Block. It represents the entire card component. The name uses
+              lowercase words joined by a single hyphen.
+            </p>
+          </div>
+        </div>
+
+        <!-- Element -->
+        <div class="explanation__concept">
+          <h3 class="explanation__concept-title">
+            <span class="explanation__label explanation__label--element"
+              >E</span
+            >
+            Element
+          </h3>
+          <p class="explanation__text">
+            An <strong>Element</strong> is a part of a Block that has no meaning
+            on its own. It is always tied to its Block and is separated by a
+            <strong>double underscore</strong>
+            (<code class="explanation__inline-code">__</code>).
+          </p>
+          <div class="explanation__example">
+            <div class="explanation__example-label">In our card example</div>
+            <pre
+              class="explanation__code-block"
+            ><code>&lt;h2 class="<mark>product-card__title</mark>"&gt;Minimalist Watch&lt;/h2&gt;
+&lt;span class="<mark>product-card__price</mark>"&gt;$129&lt;/span&gt;
+&lt;button class="<mark>product-card__button</mark>"&gt;Add to Cart&lt;/button&gt;</code></pre>
+            <p class="explanation__example-note">
+              <code class="explanation__inline-code">__title</code>,
+              <code class="explanation__inline-code">__price</code>, and
+              <code class="explanation__inline-code">__button</code> are all
+              Elements of the
+              <code class="explanation__inline-code">product-card</code> Block.
+              They only make sense inside a product card.
+            </p>
+          </div>
+          <div class="explanation__callout">
+            <strong>Full element list in this example:</strong>
+            <code class="explanation__inline-code">__image-wrapper</code>,
+            <code class="explanation__inline-code">__image</code>,
+            <code class="explanation__inline-code">__badge</code>,
+            <code class="explanation__inline-code">__body</code>,
+            <code class="explanation__inline-code">__category</code>,
+            <code class="explanation__inline-code">__title</code>,
+            <code class="explanation__inline-code">__description</code>,
+            <code class="explanation__inline-code">__footer</code>,
+            <code class="explanation__inline-code">__price</code>,
+            <code class="explanation__inline-code">__button</code>
+          </div>
+        </div>
+
+        <!-- Modifier -->
+        <div class="explanation__concept">
+          <h3 class="explanation__concept-title">
+            <span class="explanation__label explanation__label--modifier"
+              >M</span
+            >
+            Modifier
+          </h3>
+          <p class="explanation__text">
+            A <strong>Modifier</strong> changes the appearance or behavior of a
+            Block or Element. It is separated by a
+            <strong>double hyphen</strong>
+            (<code class="explanation__inline-code">--</code>) and is
+            <em>always used alongside</em> the base class, never alone.
+          </p>
+          <div class="explanation__example">
+            <div class="explanation__example-label">Block-level modifier</div>
+            <pre
+              class="explanation__code-block"
+            ><code>&lt;article class="product-card <mark>product-card--featured</mark>"&gt;</code></pre>
+            <p class="explanation__example-note">
+              <code class="explanation__inline-code">--featured</code> adds a
+              gold border to the card. Notice it sits next to the base
+              <code class="explanation__inline-code">product-card</code>
+              class&mdash;never replaces it.
+            </p>
+          </div>
+          <div class="explanation__example">
+            <div class="explanation__example-label">Element-level modifier</div>
+            <pre
+              class="explanation__code-block"
+            ><code>&lt;span class="product-card__badge <mark>product-card__badge--highlight</mark>"&gt;
+  Best Seller
+&lt;/span&gt;</code></pre>
+            <p class="explanation__example-note">
+              <code class="explanation__inline-code">__badge--highlight</code>
+              changes the badge background to gold. Modifiers can apply to
+              Elements too, not only Blocks.
+            </p>
+          </div>
+        </div>
+
+        <!-- Why BEM -->
+        <div class="explanation__concept">
+          <h3 class="explanation__concept-title">
+            <span class="explanation__label explanation__label--why">?</span>
+            Why Use BEM?
+          </h3>
+          <ul class="explanation__benefits">
+            <li class="explanation__benefit">
+              <strong>Readability</strong> &mdash; Class names tell you exactly
+              what something is and where it belongs.
+            </li>
+            <li class="explanation__benefit">
+              <strong>No specificity wars</strong> &mdash; Every selector is a
+              single class, keeping specificity flat and predictable.
+            </li>
+            <li class="explanation__benefit">
+              <strong>Reusability</strong> &mdash; Blocks are self-contained, so
+              you can drop them anywhere without side-effects.
+            </li>
+            <li class="explanation__benefit">
+              <strong>Scalability</strong> &mdash; As your project grows, the
+              naming convention keeps styles organized and conflict-free.
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- BEM legend -->
+      <section class="legend">
+        <h2 class="legend__title">Quick Reference</h2>
+        <ul class="legend__list">
+          <li class="legend__item">
+            <code class="legend__code legend__code--block">product-card</code>
+            Block &mdash; the standalone component
+          </li>
+          <li class="legend__item">
+            <code class="legend__code legend__code--element"
+              >product-card__title</code
+            >
+            Element &mdash; a child part of the block (<code>__</code>)
+          </li>
+          <li class="legend__item">
+            <code class="legend__code legend__code--modifier"
+              >product-card--featured</code
+            >
+            Modifier &mdash; a variation of the block (<code>--</code>)
+          </li>
+        </ul>
+      </section>
+    </main>
+  </body>
+</html>

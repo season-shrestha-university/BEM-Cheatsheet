@@ -1,0 +1,528 @@
+/* =============================================
+   BEM Product Card Example
+   Block:    product-card
+   Elements: __image-wrapper, __image, __badge,
+             __body, __category, __title,
+             __description, __footer, __price,
+             __button
+   Modifiers: --featured, --sold-out,
+              __badge--highlight, __badge--muted
+   ============================================= */
+
+/* ----- Reset & base ----- */
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Oswald", "Segoe UI", system-ui, -apple-system, sans-serif;
+  background: #f0ead0;
+  color: #2b1810;
+  line-height: 1.6;
+}
+
+/* =========================================
+   Block: page
+   ========================================= */
+
+.page {
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 3rem 1.5rem 4rem;
+}
+
+.page__title {
+  text-align: center;
+  font-size: 2rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  margin-bottom: 2.5rem;
+  color: #2b1810;
+}
+
+/* =========================================
+   Block: product-grid
+   ========================================= */
+
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 2rem;
+}
+
+/* =========================================
+   Block: product-card
+   ========================================= */
+
+.product-card {
+  background: #faf6ed;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 2px 12px rgba(43, 24, 16, 0.08);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  display: flex;
+  flex-direction: column;
+}
+
+.product-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 28px rgba(43, 24, 16, 0.14);
+}
+
+/* --- Element: __image-wrapper --- */
+
+.product-card__image-wrapper {
+  position: relative;
+  overflow: hidden;
+  aspect-ratio: 4 / 3;
+  background: #e8dcc8;
+}
+
+/* --- Element: __image --- */
+
+.product-card__image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.4s ease;
+}
+
+.product-card:hover .product-card__image {
+  transform: scale(1.05);
+}
+
+/* --- Element: __badge --- */
+
+.product-card__badge {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  padding: 4px 12px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  border-radius: 6px;
+  background: #2b1810;
+  color: #f0ead0;
+}
+
+/* Modifier: __badge--highlight */
+.product-card__badge--highlight {
+  background: #c47a1a;
+  color: #fff;
+}
+
+/* Modifier: __badge--muted */
+.product-card__badge--muted {
+  background: #8b7355;
+}
+
+/* --- Element: __body --- */
+
+.product-card__body {
+  padding: 1.25rem 1.5rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+/* --- Element: __category --- */
+
+.product-card__category {
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: #8b7355;
+  margin-bottom: 0.25rem;
+}
+
+/* --- Element: __title --- */
+
+.product-card__title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  margin-bottom: 0.5rem;
+  color: #2b1810;
+}
+
+/* --- Element: __description --- */
+
+.product-card__description {
+  font-size: 0.9rem;
+  color: #5c4a3a;
+  margin-bottom: 1.25rem;
+  flex: 1;
+  font-family: "Segoe UI", system-ui, -apple-system, sans-serif;
+}
+
+/* --- Element: __footer --- */
+
+.product-card__footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: auto;
+}
+
+/* --- Element: __price --- */
+
+.product-card__price {
+  font-size: 1.35rem;
+  font-weight: 800;
+  color: #2b1810;
+}
+
+/* --- Element: __button --- */
+
+.product-card__button {
+  padding: 0.55rem 1.25rem;
+  font-family: "Oswald", sans-serif;
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  background: #c47a1a;
+  color: #fff;
+  transition: background 0.2s ease;
+}
+
+.product-card__button:hover {
+  background: #a86515;
+}
+
+.product-card__button:disabled {
+  background: #c4b9a8;
+  color: #8b7355;
+  cursor: not-allowed;
+}
+
+/* =========================================
+   Modifier: product-card--featured
+   ========================================= */
+
+.product-card--featured {
+  border: 2px solid #c47a1a;
+}
+
+/* =========================================
+   Modifier: product-card--sold-out
+   ========================================= */
+
+.product-card--sold-out {
+  opacity: 0.7;
+}
+
+.product-card--sold-out .product-card__image {
+  filter: grayscale(60%) sepia(20%);
+}
+
+.product-card--sold-out:hover {
+  transform: none;
+  box-shadow: 0 2px 12px rgba(43, 24, 16, 0.08);
+}
+
+/* =========================================
+   Block: explanation
+   ========================================= */
+
+.explanation {
+  margin-top: 3.5rem;
+  padding: 2.5rem 2rem;
+  background: #faf6ed;
+  border-radius: 16px;
+  box-shadow: 0 2px 12px rgba(43, 24, 16, 0.08);
+}
+
+.explanation__heading {
+  font-size: 1.6rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: #2b1810;
+  margin-bottom: 1rem;
+}
+
+.explanation__intro {
+  font-size: 1rem;
+  color: #5c4a3a;
+  line-height: 1.7;
+  max-width: 680px;
+  font-family: "Segoe UI", system-ui, -apple-system, sans-serif;
+}
+
+.explanation__formula {
+  margin: 1.5rem 0 2rem;
+  padding: 1rem 1.5rem;
+  background: #2b1810;
+  border-radius: 10px;
+  text-align: center;
+}
+
+.explanation__formula-code {
+  font-family: "SF Mono", "Fira Code", monospace;
+  font-size: 1.2rem;
+  color: #f0ead0;
+  letter-spacing: 0.02em;
+}
+
+/* --- Element: __concept --- */
+
+.explanation__concept {
+  padding: 1.5rem 0;
+  border-top: 1px solid #e8dcc8;
+}
+
+.explanation__concept-title {
+  font-size: 1.2rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: #2b1810;
+  margin-bottom: 0.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.explanation__label {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+.explanation__label--block {
+  background: #2b1810;
+  color: #f0ead0;
+}
+
+.explanation__label--element {
+  background: #c47a1a;
+  color: #fff;
+}
+
+.explanation__label--modifier {
+  background: #e8dcc8;
+  color: #5c4a3a;
+}
+
+.explanation__label--why {
+  background: #5c4a3a;
+  color: #f0ead0;
+}
+
+.explanation__text {
+  font-size: 0.95rem;
+  color: #5c4a3a;
+  line-height: 1.7;
+  margin-bottom: 1rem;
+  font-family: "Segoe UI", system-ui, -apple-system, sans-serif;
+}
+
+/* --- Element: __example --- */
+
+.explanation__example {
+  margin-bottom: 1rem;
+  padding-left: 1rem;
+  border-left: 3px solid #e8dcc8;
+}
+
+.explanation__example-label {
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: #8b7355;
+  margin-bottom: 0.4rem;
+}
+
+.explanation__code-block {
+  background: #2b1810;
+  color: #f0ead0;
+  padding: 1rem 1.25rem;
+  border-radius: 10px;
+  font-family: "SF Mono", "Fira Code", monospace;
+  font-size: 0.82rem;
+  line-height: 1.7;
+  overflow-x: auto;
+  margin-bottom: 0.6rem;
+}
+
+.explanation__code-block mark {
+  background: rgba(196, 122, 26, 0.35);
+  color: #f5d9a0;
+  padding: 1px 4px;
+  border-radius: 3px;
+}
+
+.explanation__example-note {
+  font-size: 0.88rem;
+  color: #5c4a3a;
+  line-height: 1.6;
+  font-family: "Segoe UI", system-ui, -apple-system, sans-serif;
+}
+
+.explanation__inline-code {
+  display: inline;
+  padding: 1px 6px;
+  background: #e8dcc8;
+  border-radius: 4px;
+  font-family: "SF Mono", "Fira Code", monospace;
+  font-size: 0.82rem;
+  color: #2b1810;
+}
+
+/* --- Element: __callout --- */
+
+.explanation__callout {
+  margin-top: 0.75rem;
+  padding: 0.85rem 1rem;
+  background: #e8dcc8;
+  border-radius: 8px;
+  font-size: 0.85rem;
+  color: #5c4a3a;
+  line-height: 1.8;
+  font-family: "Segoe UI", system-ui, -apple-system, sans-serif;
+}
+
+/* --- Element: __benefits --- */
+
+.explanation__benefits {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+}
+
+.explanation__benefit {
+  position: relative;
+  padding-left: 1.25rem;
+  font-size: 0.92rem;
+  color: #5c4a3a;
+  line-height: 1.6;
+  font-family: "Segoe UI", system-ui, -apple-system, sans-serif;
+}
+
+.explanation__benefit::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.55em;
+  width: 8px;
+  height: 8px;
+  border-radius: 2px;
+  background: #c47a1a;
+}
+
+/* =========================================
+   Block: legend
+   ========================================= */
+
+.legend {
+  margin-top: 3.5rem;
+  padding: 2rem;
+  background: #faf6ed;
+  border-radius: 16px;
+  box-shadow: 0 2px 12px rgba(43, 24, 16, 0.08);
+}
+
+.legend__title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+  color: #2b1810;
+}
+
+.legend__list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.legend__item {
+  font-size: 0.95rem;
+  color: #5c4a3a;
+}
+
+.legend__code {
+  display: inline-block;
+  padding: 2px 8px;
+  border-radius: 4px;
+  font-family: "SF Mono", "Fira Code", monospace;
+  font-size: 0.85rem;
+  margin-right: 0.5rem;
+}
+
+/* Modifier: __code--block */
+.legend__code--block {
+  background: #2b1810;
+  color: #f0ead0;
+}
+
+/* Modifier: __code--element */
+.legend__code--element {
+  background: #c47a1a;
+  color: #fff;
+}
+
+/* Modifier: __code--modifier */
+.legend__code--modifier {
+  background: #e8dcc8;
+  color: #5c4a3a;
+}
+
+/* ----- Responsive ----- */
+
+@media (max-width: 640px) {
+  .page__title {
+    font-size: 1.5rem;
+  }
+
+  .product-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .legend__list {
+    gap: 1rem;
+  }
+
+  .explanation {
+    padding: 1.5rem 1.25rem;
+  }
+
+  .explanation__heading {
+    font-size: 1.3rem;
+  }
+
+  .explanation__formula-code {
+    font-size: 0.95rem;
+  }
+
+  .explanation__code-block {
+    font-size: 0.75rem;
+    padding: 0.75rem 1rem;
+  }
+
+  .legend__code {
+    display: block;
+    margin-bottom: 0.25rem;
+  }
+}
