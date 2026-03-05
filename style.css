@@ -526,3 +526,30 @@ body {
     margin-bottom: 0.25rem;
   }
 }
+
+/* =========================================
+   Block: footer
+   ========================================= */
+
+.footer {
+  text-align: center;
+  padding: 2rem 1.5rem 3rem;
+}
+
+.footer__github-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: #2b1810;
+  text-decoration: none;
+  font-family: "Oswald", sans-serif;
+  font-size: 0.95rem;
+  font-weight: 500;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  transition: color 0.2s ease;
+}
+
+.footer__github-link:hover {
+  color: #555;
+}
