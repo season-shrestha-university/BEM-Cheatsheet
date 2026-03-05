@@ -10,11 +10,11 @@ Open `index.html` in your browser to see it in action.
 
 BEM is a simple set of rules for naming your CSS classes. Every class name you write fits into one of three categories:
 
-| Piece        | What It Means                                  | Syntax              | Example                          |
-| ------------ | ---------------------------------------------- | -------------------- | -------------------------------- |
-| **Block**    | A standalone, reusable component               | `block`              | `product-card`                   |
-| **Element**  | A part *inside* a Block (can't exist alone)    | `block__element`     | `product-card__title`            |
-| **Modifier** | A variation that changes look or behavior      | `block--modifier`    | `product-card--featured`         |
+| Piece        | What It Means                               | Syntax            | Example                  |
+| ------------ | ------------------------------------------- | ----------------- | ------------------------ |
+| **Block**    | A standalone, reusable component            | `block`           | `product-card`           |
+| **Element**  | A part _inside_ a Block (can't exist alone) | `block__element`  | `product-card__title`    |
+| **Modifier** | A variation that changes look or behavior   | `block--modifier` | `product-card--featured` |
 
 Put together, the full pattern looks like this:
 
@@ -33,19 +33,18 @@ That's it. Three concepts, two symbols (`__` and `--`), one pattern.
 A **Block** is a meaningful, self-contained piece of UI. It could be a card, a menu, a header, a form — anything that makes sense on its own.
 
 ```html
-<article class="product-card">
-  ...
-</article>
+<article class="product-card">...</article>
 ```
 
 Rules for Blocks:
+
 - Name describes **what it is**, not what it looks like (use `product-card`, not `big-red-box`).
 - Use lowercase words separated by a single hyphen: `search-form`, `nav-bar`, `hero-banner`.
 - A Block can be placed anywhere on a page and should still work correctly.
 
 ### 2. Element
 
-An **Element** is a child piece that only makes sense *inside* its Block. You connect it with a **double underscore** (`__`).
+An **Element** is a child piece that only makes sense _inside_ its Block. You connect it with a **double underscore** (`__`).
 
 ```html
 <article class="product-card">
@@ -56,20 +55,19 @@ An **Element** is a child piece that only makes sense *inside* its Block. You co
 ```
 
 Rules for Elements:
+
 - Always prefixed with the Block name: `product-card__title`, never just `__title`.
 - An Element belongs to one Block. Don't reuse an Element class outside its Block.
-- **Never nest Element names.** Write `product-card__icon`, *not* `product-card__footer__icon`. Elements are always one level deep in the name, even if the HTML is nested.
+- **Never nest Element names.** Write `product-card__icon`, _not_ `product-card__footer__icon`. Elements are always one level deep in the name, even if the HTML is nested.
 
 ### 3. Modifier
 
-A **Modifier** changes the appearance or state of a Block *or* Element. You attach it with a **double hyphen** (`--`).
+A **Modifier** changes the appearance or state of a Block _or_ Element. You attach it with a **double hyphen** (`--`).
 
 **On a Block:**
 
 ```html
-<article class="product-card product-card--featured">
-  ...
-</article>
+<article class="product-card product-card--featured">...</article>
 ```
 
 **On an Element:**
@@ -81,8 +79,9 @@ A **Modifier** changes the appearance or state of a Block *or* Element. You atta
 ```
 
 Rules for Modifiers:
+
 - A Modifier class is **always used alongside** the base class, never alone. You write `class="product-card product-card--featured"`, not just `class="product-card--featured"`.
-- Describes *how* something differs: `--featured`, `--sold-out`, `--large`, `--disabled`.
+- Describes _how_ something differs: `--featured`, `--sold-out`, `--large`, `--disabled`.
 
 ---
 
@@ -143,12 +142,12 @@ In your stylesheet, every selector is a **single class**. No nesting, no combina
 
 ## Common Mistakes to Avoid
 
-| Mistake | Why It's Wrong | Correct Version |
-| ------- | -------------- | --------------- |
-| `.product-card .title` | Uses descendant selectors; defeats the purpose of BEM | `.product-card__title` |
-| `.product-card__footer__icon` | Nests element names; BEM elements are always one level | `.product-card__icon` |
-| `class="product-card--featured"` (alone) | Modifier used without the base class | `class="product-card product-card--featured"` |
-| `.productCard__title` | Uses camelCase instead of kebab-case | `.product-card__title` |
+| Mistake                                  | Why It's Wrong                                         | Correct Version                               |
+| ---------------------------------------- | ------------------------------------------------------ | --------------------------------------------- |
+| `.product-card .title`                   | Uses descendant selectors; defeats the purpose of BEM  | `.product-card__title`                        |
+| `.product-card__footer__icon`            | Nests element names; BEM elements are always one level | `.product-card__icon`                         |
+| `class="product-card--featured"` (alone) | Modifier used without the base class                   | `class="product-card product-card--featured"` |
+| `.productCard__title`                    | Uses camelCase instead of kebab-case                   | `.product-card__title`                        |
 
 ---
 
